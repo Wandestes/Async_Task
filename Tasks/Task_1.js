@@ -11,13 +11,13 @@ function mapWithCallback(array, callback, finalCallback) {
 
     array.forEach((item, index) => {
         callback(item, (error, result) => {
-                if (error) {
-                 console.error(error.message);
-                 results[index] = null;
-                } else {
-                    results[index] = result;
-                }
-            //Checking the completion of all operations
+            if (error) {
+                console.error(error.message);
+                results[index] = null;
+            } else {
+                results[index] = result;
+            }
+
             processed++;
             if (processed === array.length) {
                 finalCallback(results);
@@ -33,7 +33,7 @@ function demoFunc() {
     const tripleWithCallback = (num, callback) => {
         setTimeout(() => {
             if (Math.random() < 0.2) {
-                callback(Failed to process ${num});
+                callback(`Failed to process ${num}`);
             } else {
                 callback(null, num * 3);
             }
