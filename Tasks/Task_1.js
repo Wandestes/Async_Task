@@ -17,7 +17,7 @@ function mapWithCallback(array, callback, finalCallback) {
                 } else {
                     results[index] = result;
                 }
-
+            //Checking the completion of all operations
             processed++;
             if (processed === array.length) {
                 finalCallback(results);
@@ -25,3 +25,11 @@ function mapWithCallback(array, callback, finalCallback) {
         });
     });
 }
+
+// demo case for the usage
+function demoFunc() {
+    const numbers = [1, 2, 3, 4, 5];
+
+    
+}
+
