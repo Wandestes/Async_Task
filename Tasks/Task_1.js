@@ -30,6 +30,19 @@ function mapWithCallback(array, callback, finalCallback) {
 function demoFunc() {
     const numbers = [1, 2, 3, 4, 5];
 
-    
+    const tripleWithCallback = (num, callback) => {
+        setTimeout(() => {
+            if (Math.random() < 0.2) {
+                callback(Failed to process ${num});
+            } else {
+                callback(null, num * 3);
+            }
+        }, Math.random() * 1000);
+    };
+
+    mapWithCallback(numbers, tripleWithCallback, (results) => {
+        console.log(results);
+    });
 }
 
+demoFunc();
